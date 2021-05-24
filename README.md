@@ -2,9 +2,11 @@
 This app is used for estimating the distance between two objects from monocular RGB images 
 
 # DEMO
-(https://user-images.githubusercontent.com/64745286/119369441-24784700-bcef-11eb-982e-e8d61d497b01.png)
+![demo_img1](https://user-images.githubusercontent.com/64745286/119369441-24784700-bcef-11eb-982e-e8d61d497b01.png)
 
 # Features
+There are no restrictions on the direction of shooting.
+
 
 # Confirmed environment
 * huga 3.5.2
@@ -22,8 +24,10 @@ streamlit run app.py
 ```
 
 # Note
+The app needs prior information below
+・camera rangle of view
+・ number of pixels when the ball is at the reference distance
 
-注意点などがあれば書く
 
 # Author
 * ikuto oki
