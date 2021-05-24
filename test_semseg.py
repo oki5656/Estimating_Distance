@@ -70,25 +70,18 @@ def evaluate(args, model, image_list, device, IMG, ver, hor):
     for i, imgName in tqdm(enumerate(image_list)):
         #print("imgName=",imgName)
         img = Image.open(imgName).convert('RGB')#imgNameはtest_semseg.pyから画像までのパス
-        #print("type(IMG)",type(IMG))
-        #print("type(img)",type(img))
         img = Image.fromarray(np.uint8(IMG))
         w, h = img.size
 
         img = data_transform(img, im_size)
-        #st.write(img.shape)
-        #st.write("np.unique()=",np.unique(segmap))
         img = img.unsqueeze(0)  # add a batch dimension
         img = img.to(device)
         img_out = model(img)##################################################
-        #segmap=img_out
         img_out = img_out.squeeze(0)  # remove the batch dimension
         img_out = img_out.max(0)[1].byte()  # get the label map
-        #st.write("img_out.size",img_out.size())
         img_out = img_out.to(device='cpu').numpy()
 
         img_out = Image.fromarray(img_out)
-        # resize to original size
         img_out = img_out.resize((w, h), Image.NEAREST)
 
         if args.dataset == 'mydataset':
@@ -100,19 +93,7 @@ def evaluate(args, model, image_list, device, IMG, ver, hor):
         name = '{}/{}'.format(args.savedir, name.replace(img_extn, 'png'))
         img_out.save(name)
         segmap=img_out
-        """
-        st.write(name)
-        st.write(np.unique(name))
-        st.write("np_out_img.size",img_out.size)
-        np_out_img = np.asarray(img_out)
-        st.write("np.unique",np.unique(np_out_img))
-        """
-        
-        #print("type(img_out)",type(img_out))#<class 'PIL.Image.Image'>
-        #print("img_out.size = ",img_out.size)# (1512, 2016)
         img_out=np.asarray(img_out)
-        #=np.sum(img_out == 0)#3034182
-        #img1=np.sum(img_out == 1)#14010
 
         # Apply KMeans
         ############ config #############
@@ -152,17 +133,8 @@ def evaluate(args, model, image_list, device, IMG, ver, hor):
         x3=np.sqrt(WIDTH**2+HEIGHT**2)#にゅうりょく画像の対角線MAX距離
         theta=x1*x2/x3
         ans=np.sqrt(L1**2+L2**2-2*L1*L2*np.cos(np.radians(theta)))
-        #print("ans=",ans*100,"cm")#"[cm]"
 
         return ans , segmap
-        """
-        plt.scatter(A[:,0],A[:,1])
-        plt.scatter(B[:,0],B[:,1],c = 'r')
-        plt.scatter(center[:,0],center[:,1],s = 80,c = 'y', marker = 's')
-        plt.xlabel('Height'),plt.ylabel('Weight')
-        plt.show()"""
-
-        #print()
 
 def main(image,v,h):
     parser = ArgumentParser()
@@ -208,9 +180,7 @@ def main(image,v,h):
 
     # read all the images in the folder
     if args.dataset == 'mydataset':
-        #from data_loader.segmentation.mydataset import MY_DATASET_CLASS_LIST
         seg_classes = len(MY_DATASET_CLASS_LIST)
-        #print(args.data_path)
         data_file = os.path.join(args.data_path,'{}.txt'.format(args.split))
         #print("data file=",data_file)
         if not os.path.isfile(data_file):

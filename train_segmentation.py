@@ -173,9 +173,6 @@ def main(args):
 
     extra_info_ckpt = '{}_{}_{}'.format(args.model, args.s, crop_size[0])
 
-    ############################################################################
-    ############################  ここらへんで学習？  ############################
-    #############################################################################
     for epoch in range(start_epoch, args.epochs):
         lr_base = lr_scheduler.step(epoch)
         # set the optimizer with the learning rate
@@ -274,8 +271,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     random.seed(1882)
     torch.manual_seed(1882)
-
-    #print(args)
 
     if args.dataset == 'pascal':
         args.scale = (0.5, 2.0)
