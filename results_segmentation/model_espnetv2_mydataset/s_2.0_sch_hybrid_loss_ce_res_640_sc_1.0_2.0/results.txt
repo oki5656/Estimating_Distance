@@ -1,0 +1,2 @@
+20210423-163851:train 55,val 12,epoch100,batch_size16
+202210430-141841:train:81,val:14,epoch40,batch_size16,mIoU=55.9
