@@ -26,7 +26,7 @@ streamlit run app.py
 # Note
 The app needs prior information below  
 ・camera rangle of view  
-・ number of pixels when the ball is at the reference distance  
+・number of pixels when the ball is at the reference distance  
 
 
 # Author
