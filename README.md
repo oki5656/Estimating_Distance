@@ -9,7 +9,6 @@ There are no restrictions on the direction of shooting.
 
 
 # Confirmed environment
-* huga 3.5.2
 * Python==3.6.9
 * torch==1.4.0
 * torchvision==0.5.0  
