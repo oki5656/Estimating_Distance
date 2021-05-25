@@ -2,7 +2,7 @@
 This app is used for estimating the distance between two balls from monocular RGB images. 
 
 # DEMO
-Upload an image from the left bar, and the result will be output automatically.
+Upload an image from the left bar, and the result will be output automatically.  
 Click the check box (Result semantic segmentation), and you can see reslut of semantic segmentation.
 ![demo_img1](https://user-images.githubusercontent.com/64745286/119369441-24784700-bcef-11eb-982e-e8d61d497b01.png)
 
