@@ -1,5 +1,5 @@
 # Estimating_Distance
-This app is used for estimating the distance between two balls from monocular RGB images. 
+This app is used for estimating the distance between two balls from a monocular RGB image. 
 
 # DEMO
 Upload an image from the left bar, and the result will be output automatically.  
