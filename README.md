@@ -11,6 +11,7 @@ Click the check box (Result semantic segmentation), and you can see reslut of se
 There are no restrictions on the direction of shooting.
 Since real-time semantic segmentation(ESPNetv2) is used in this application, it can be reasoned with fast speed.  
 
+Detail algorizm of this App is here:https://www.slideshare.net/RidgeiSlideshare/may-internship-challenge-estimating-distance-between-two-balls-app
 ESPNetv2 paper link:https://arxiv.org/abs/1811.11431  
 Repositry of ESPNetv2 is here:https://github.com/sacmehta/EdgeNets
 
