@@ -29,7 +29,7 @@ https://github.com/sacmehta/EdgeNets
 
 # Usage
 ```bash
-git clone https://github.com/ikuto056/Estimating_Distance.git
+git clone https://github.com/oki5656/Estimating_Distance.git
 streamlit run app.py
 ```
 
